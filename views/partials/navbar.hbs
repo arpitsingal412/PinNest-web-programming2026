@@ -1,0 +1,13 @@
+<!-- Navbar partial — navigation for all pages -->
+<nav class="navbar" role="navigation" aria-label="Main navigation">
+  <div class="nav-container">
+    <a href="/" class="nav-logo" aria-label="PinNest Home">
+      <span class="logo-icon">📌</span>
+      <span class="logo-text">PinNest</span>
+    </a>
+
+    <ul class="nav-links">
+      <li><a href="/" class="nav-link {{#if (eq activePage 'home')}}nav-active{{/if}}">Home</a></li>
+    </ul>
+  </div>
+</nav>
