@@ -1,4 +1,7 @@
 <!-- Navbar partial — navigation for all pages -->
+<!-- {{user}} comes from res.locals.user (set in server.js) -->
+<!-- Login/Register are intentionally NOT here — they live on the home page hero
+     (logged out) and on login.hbs/register.hbs, which link to each other -->
 <nav class="navbar" role="navigation" aria-label="Main navigation">
   <div class="nav-container">
     <a href="/" class="nav-logo" aria-label="PinNest Home">
@@ -8,6 +11,11 @@
 
     <ul class="nav-links">
       <li><a href="/" class="nav-link {{#if (eq activePage 'home')}}nav-active{{/if}}">Home</a></li>
+
+      {{#if user}}
+      <!-- Logged in — show the user's own sections -->
+      <li><a href="/logout" class="nav-link nav-logout">Logout</a></li>
+      {{/if}}
     </ul>
   </div>
 </nav>

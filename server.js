@@ -6,6 +6,7 @@
 var express = require('express');
 var exphbs = require('express-handlebars');
 var mongoose = require('mongoose');
+var session = require('express-session');
 var path = require('path');
 
 // Create Express application
@@ -45,14 +46,31 @@ app.set('views', path.join(__dirname, 'views'));
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 
+// Session middleware — remembers who is logged in between requests
+// The browser stores a session cookie, the server stores the session data
+app.use(session({
+  secret: 'pinnest-secret-key',
+  resave: false,
+  saveUninitialized: false
+}));
+
+// Make the logged-in user available to EVERY Handlebars view as {{user}}
+// This is what lets the navbar show Login/Register or Logout
+app.use(function(req, res, next) {
+  res.locals.user = req.session.user || null;
+  next();
+});
+
 // Serve static files from the public directory
 // This supports the A3 requirement for static files
 app.use(express.static(path.join(__dirname, 'public')));
 
 // Import routes
+var authRoutes = require('./routes/authRoutes');
 var homeRoutes = require('./routes/homeRoutes');
 
 // Use routes
+app.use('/', authRoutes);
 app.use('/', homeRoutes);
 
 // Start the HTTP server

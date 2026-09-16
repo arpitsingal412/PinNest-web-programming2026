@@ -38,13 +38,19 @@ npm install
 mongod
 ```
 
-4. Start the server:
+4. Seed the database with sample data:
+
+```
+node seed.js
+```
+
+5. Start the server:
 
 ```
 node server.js
 ```
 
-5. Open in browser:
+6. Open in browser:
 
 ```
 http://localhost:3000
@@ -55,6 +61,8 @@ http://localhost:3000
 ```
 pinnest/
 ├── server.js           — Node.js HTTP server (Express)
+├── seed.js             — Database seed script
+├── models/             — Mongoose schemas (Data layer)
 ├── controllers/        — Route handlers (Logic)
 ├── routes/             — Express route definitions
 ├── views/              — Handlebars templates (View layer)
@@ -62,7 +70,8 @@ pinnest/
 │   └── partials/       — Reusable components
 └── public/             — Static files
     ├── css/            — Stylesheets
-    └── js/             — Browser JavaScript
+    ├── js/             — Browser JavaScript
+    └── images/         — Local images
 ```
 
 ## Pages

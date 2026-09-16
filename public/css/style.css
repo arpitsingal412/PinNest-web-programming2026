@@ -163,6 +163,30 @@ p {
 }
 
 /* ============================================================
+   BUTTONS (classes)
+   ============================================================ */
+.btn {
+  display: inline-block;
+  padding: 10px 24px;
+  border: none;
+  border-radius: 20px;
+  font-size: 15px;
+  font-weight: 600;
+  cursor: pointer;
+  text-align: center;
+}
+
+.btn-primary {
+  background-color: #d4775b;
+  color: #ffffff;
+}
+
+.btn-large {
+  padding: 14px 32px;
+  font-size: 16px;
+}
+
+/* ============================================================
    HOME HERO (Home page — editorial title strip)
    ============================================================ */
 .home-hero {
@@ -193,6 +217,46 @@ p {
 }
 
 /* ============================================================
+   FORMS
+   ============================================================ */
+.form-group {
+  margin-bottom: 16px;
+}
+
+.form-group label {
+  display: block;
+  font-size: 14px;
+  font-weight: 600;
+  color: #2c2c2c;
+  margin-bottom: 6px;
+}
+
+.form-input,
+.form-select,
+.form-textarea,
+.filter-select,
+.filter-input {
+  width: 100%;
+  padding: 10px 14px;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  font-size: 15px;
+  font-family: inherit;
+  color: #2c2c2c;
+  background-color: #ffffff;
+}
+
+.form-textarea {
+  resize: vertical;
+}
+
+.form-row-group {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 16px;
+}
+
+/* ============================================================
    FOOTER
    ============================================================ */
 .site-footer {
@@ -206,4 +270,196 @@ p {
 .footer-content p {
   font-size: 13px;
   color: #999;
+}
+
+/* ============================================================
+   LOGIN / REGISTER PAGES (auth)
+   ============================================================ */
+.auth-section {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  padding: 40px 20px;
+  background: linear-gradient(rgba(20, 15, 12, 0.65), rgba(20, 15, 12, 0.75)),
+              url('/images/livingroom.jpg') center/cover no-repeat fixed;
+}
+
+.auth-card {
+  width: 100%;
+  max-width: 480px;
+  background: rgba(253, 248, 243, 0.82);
+  backdrop-filter: blur(24px);
+  -webkit-backdrop-filter: blur(24px);
+  border: 1px solid rgba(255, 255, 255, 0.6);
+  border-radius: 28px;
+  padding: 44px 40px;
+  box-shadow: 0 30px 60px rgba(0, 0, 0, 0.3), 0 10px 20px rgba(0, 0, 0, 0.15);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.auth-hero {
+  text-align: center;
+  margin-bottom: 28px;
+}
+
+.auth-eyebrow {
+  display: block;
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.25em;
+  text-transform: uppercase;
+  color: #b5876f;
+  margin-bottom: 8px;
+}
+
+.auth-title {
+  font-family: 'Playfair Display', Georgia, serif;
+  font-size: 36px;
+  font-weight: 500;
+  color: #2a2018;
+  letter-spacing: -0.01em;
+  line-height: 1.2;
+  margin-bottom: 8px;
+}
+
+.auth-subtitle {
+  font-size: 14px;
+  color: #6b5c52;
+  line-height: 1.5;
+  margin-bottom: 0;
+}
+
+/* Error Banner */
+.auth-error-banner {
+  background-color: rgba(220, 53, 69, 0.12);
+  border: 1px solid rgba(220, 53, 69, 0.3);
+  color: #b02a37;
+  font-size: 13px;
+  font-weight: 500;
+  padding: 12px 16px;
+  border-radius: 12px;
+  margin-bottom: 24px;
+  text-align: center;
+}
+
+/* Form controls restyled on glass surface */
+.auth-form .form-group {
+  margin-bottom: 20px;
+}
+
+.auth-form label {
+  display: block;
+  font-size: 12px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: #4a3e35;
+  margin-bottom: 6px;
+}
+
+.auth-form .form-input {
+  width: 100%;
+  padding: 13px 16px;
+  border-radius: 14px;
+  background: rgba(255, 255, 255, 0.65);
+  border: 1px solid rgba(190, 170, 155, 0.45);
+  color: #2a2018;
+  font-size: 15px;
+  font-family: inherit;
+  transition: all 0.2s ease;
+  box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.03);
+}
+
+.auth-form .form-input::placeholder {
+  color: #a09085;
+}
+
+.auth-form .form-input:focus {
+  outline: none;
+  background: rgba(255, 255, 255, 0.95);
+  border-color: #d4775b;
+  box-shadow: 0 0 0 4px rgba(212, 119, 91, 0.18);
+}
+
+.form-row-group {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+}
+
+/* Submit Button */
+.auth-submit {
+  width: 100%;
+  height: 48px;
+  margin-top: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 16px;
+  font-weight: 600;
+  background-color: #d4775b;
+  color: #ffffff;
+  border: none;
+  border-radius: 14px;
+  box-shadow: 0 6px 18px rgba(212, 119, 91, 0.35);
+  cursor: pointer;
+  transition: all 0.25s ease;
+}
+
+.auth-submit:hover {
+  background-color: #bd6247;
+  box-shadow: 0 8px 24px rgba(212, 119, 91, 0.45);
+  transform: translateY(-1px);
+}
+
+.auth-submit:active {
+  transform: translateY(0);
+}
+
+.auth-switch {
+  font-size: 14px;
+  color: #6b5c52;
+  text-align: center;
+  margin-top: 24px;
+}
+
+.auth-switch a {
+  color: #d4775b;
+  font-weight: 600;
+  text-decoration: underline;
+  transition: color 0.2s ease;
+}
+
+.auth-switch a:hover {
+  color: #bd6247;
+}
+
+/* Navbar auth links */
+.nav-register {
+  background-color: #d4775b;
+  color: #ffffff !important;
+  border-radius: 20px;
+  padding: 6px 16px !important;
+}
+
+.nav-logout {
+  color: #c62828 !important;
+}
+
+/* Responsive — Mobile */
+@media (max-width: 600px) {
+  .auth-card {
+    padding: 32px 24px;
+    border-radius: 20px;
+  }
+
+  .auth-title {
+    font-size: 30px;
+  }
+
+  .form-row-group {
+    grid-template-columns: 1fr;
+    gap: 0;
+  }
 }

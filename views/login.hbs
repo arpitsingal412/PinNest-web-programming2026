@@ -1,0 +1,41 @@
+<!-- Login Page — sign in to an existing PinNest account -->
+<section class="auth-section">
+  <div class="auth-card">
+
+    <!-- Hero header inside glass card -->
+    <div class="auth-hero">
+      <span class="auth-eyebrow">PinNest</span>
+      <h1 class="auth-title">Welcome Back</h1>
+      <p class="auth-subtitle">Sign in to explore curated interior designs, boards, and rooms</p>
+    </div>
+
+    <!-- Error message from the controller -->
+    {{#if error}}
+    <div class="auth-error-banner" role="alert">
+      <span>{{error}}</span>
+    </div>
+    {{/if}}
+
+    <!-- Login form -->
+    <form action="/login" method="POST" class="auth-form" id="login-form">
+      <div class="form-group">
+        <label for="login-email">Email Address</label>
+        <input type="email" id="login-email" name="email" class="form-input"
+               placeholder="you@example.com" value="{{email}}" required>
+      </div>
+
+      <div class="form-group">
+        <label for="login-password">Password</label>
+        <input type="password" id="login-password" name="password" class="form-input"
+               placeholder="Enter your password" required>
+      </div>
+
+      <button type="submit" class="btn btn-primary btn-large auth-submit">Log In</button>
+    </form>
+
+    <p class="auth-switch">
+      Don't have an account? <a href="/register">Register here</a>
+    </p>
+
+  </div>
+</section>
