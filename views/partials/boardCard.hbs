@@ -1,0 +1,45 @@
+<!-- Board Card partial — a warm, editorial card with a collage preview -->
+<!-- Delete button posts to /boards/:id/delete; JS confirms before submitting -->
+<article class="board-card">
+  <a href="/boards/{{_id}}" class="board-card-main">
+    <div class="board-card-preview">
+      {{#if pins.length}}
+        <div class="board-card-collage">
+          {{#each pins}}
+            {{#if @first}}
+              <img src="{{this.imageUrl}}" alt="{{this.title}}" class="board-card-collage-tile board-card-collage-tile-main">
+            {{/if}}
+          {{/each}}
+          <div class="board-card-collage-side">
+            {{#each pins}}
+              {{#unless @first}}
+                {{#if (eq @index 1)}}<img src="{{this.imageUrl}}" alt="{{this.title}}" class="board-card-collage-tile">{{/if}}
+                {{#if (eq @index 2)}}<img src="{{this.imageUrl}}" alt="{{this.title}}" class="board-card-collage-tile">{{/if}}
+                {{#if (eq @index 3)}}<img src="{{this.imageUrl}}" alt="{{this.title}}" class="board-card-collage-tile">{{/if}}
+              {{/unless}}
+            {{/each}}
+          </div>
+        </div>
+      {{else}}
+        <div class="board-card-empty-preview">
+          <span>Empty</span>
+        </div>
+      {{/if}}
+    </div>
+    <div class="board-card-info">
+      <h3 class="board-card-title">{{name}}</h3>
+      {{#if description}}
+      <p class="board-card-description">{{description}}</p>
+      {{/if}}
+      <p class="board-card-meta">{{pins.length}} pin{{#unless (eq pins.length 1)}}s{{/unless}}</p>
+    </div>
+  </a>
+
+  <!-- Delete Board — sits in the corner, confirms before submitting -->
+  <form action="/boards/{{_id}}/delete" method="POST" class="board-card-delete-form"
+        data-confirm="Delete this board? Pins inside stay in your library, but the board itself will be removed.">
+    <button type="submit" class="board-card-delete-btn" aria-label="Delete board {{name}}">
+      <span aria-hidden="true">&times;</span>
+    </button>
+  </form>
+</article>

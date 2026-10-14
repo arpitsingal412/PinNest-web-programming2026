@@ -1,0 +1,15 @@
+<!-- Pin Card partial — reusable card component for displaying a pin -->
+<div class="pin-card">
+  <a href="/pins/{{_id}}" class="pin-card-link">
+    <div class="pin-card-image-container">
+      <img src="{{imageUrl}}" alt="{{title}}" class="pin-card-image">
+    </div>
+    <div class="pin-card-info">
+      <h3 class="pin-card-title">{{title}}</h3>
+      <p class="pin-card-category">{{category}} · {{style}}</p>
+      {{#if price}}
+      <p class="pin-card-price">₹{{price}}</p>
+      {{/if}}
+    </div>
+  </a>
+</div>

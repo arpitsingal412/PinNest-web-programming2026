@@ -181,6 +181,11 @@ p {
   color: #ffffff;
 }
 
+.btn-save {
+  background-color: #d4775b;
+  color: #ffffff;
+}
+
 .btn-large {
   padding: 14px 32px;
   font-size: 16px;
@@ -214,6 +219,635 @@ p {
   color: #2a2018;
   letter-spacing: -0.005em;
   margin-bottom: 0;
+}
+
+/* ============================================================
+   MASONRY GRID (Home page — Pinterest-style feed)
+   ============================================================ */
+.masonry-grid {
+  column-count: 4;
+  column-gap: 18px;
+}
+
+.pin-card-masonry {
+  position: relative;
+  display: block;
+  break-inside: avoid;
+  margin-bottom: 18px;
+  border-radius: 16px;
+  overflow: hidden;
+  background-color: #ececec;
+}
+
+.pin-card-masonry-image {
+  width: 100%;
+  height: auto;
+  display: block;
+  transition: transform 0.4s ease;
+}
+
+.pin-card-masonry:hover .pin-card-masonry-image {
+  transform: scale(1.03);
+}
+
+.pin-card-masonry-label {
+  position: absolute;
+  left: 16px;
+  bottom: 16px;
+  max-width: calc(100% - 32px);
+  padding: 8px 18px;
+  border-radius: 30px;
+  background-color: rgba(31, 26, 22, 0.75);
+  color: #fdf8f3;
+  font-family: 'Playfair Display', Georgia, serif;
+  font-size: 15px;
+  font-weight: 500;
+  letter-spacing: 0.01em;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+/* ============================================================
+   PIN GRID (card layout for pins)
+   ============================================================ */
+.pin-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+  gap: 20px;
+}
+
+.pin-card {
+  background-color: #ffffff;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.08);
+}
+
+.pin-card-link {
+  display: block;
+}
+
+.pin-card-image-container {
+  width: 100%;
+  overflow: hidden;
+}
+
+.pin-card-image {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+}
+
+.pin-card-info {
+  padding: 12px 14px;
+}
+
+.pin-card-title {
+  font-size: 15px;
+  font-weight: 600;
+  color: #1a1a1a;
+  margin-bottom: 4px;
+}
+
+.pin-card-category {
+  font-size: 13px;
+  color: #888;
+  margin-bottom: 4px;
+}
+
+.pin-card-price {
+  font-size: 15px;
+  font-weight: 700;
+  color: #d4775b;
+}
+
+/* ============================================================
+   BOARDS PAGE (list + create)
+   ============================================================ */
+.boards-page {
+  padding-top: 12px;
+}
+
+/* Hero header */
+.boards-hero {
+  text-align: center;
+  margin-bottom: 32px;
+}
+
+.boards-hero-eyebrow {
+  display: block;
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: #b5876f;
+  margin-bottom: 12px;
+}
+
+.boards-hero-title {
+  font-family: 'Playfair Display', Georgia, serif;
+  font-size: 40px;
+  font-weight: 500;
+  color: #2a2018;
+  letter-spacing: -0.005em;
+  margin-bottom: 6px;
+}
+
+.boards-hero-subtitle {
+  font-size: 14px;
+  color: #8c7566;
+  margin: 0;
+}
+
+/* Create Board card */
+.boards-create-card {
+  background-color: #ffffff;
+  border: 1px solid #ecdfd2;
+  border-radius: 20px;
+  padding: 28px 28px 24px;
+  margin-bottom: 40px;
+  box-shadow: 0 2px 12px -4px rgba(70, 45, 30, 0.08);
+}
+
+.boards-create-card-head {
+  margin-bottom: 20px;
+}
+
+.boards-create-card-title {
+  font-family: 'Playfair Display', Georgia, serif;
+  font-size: 22px;
+  font-weight: 500;
+  color: #2a2018;
+  margin-bottom: 4px;
+}
+
+.boards-create-card-hint {
+  font-size: 13px;
+  color: #8c7566;
+  margin: 0;
+}
+
+.boards-create-form-row {
+  display: grid;
+  grid-template-columns: 1fr 2fr;
+  gap: 16px;
+  margin-bottom: 18px;
+}
+
+.form-label-optional {
+  font-weight: 400;
+  color: #a89383;
+  font-size: 12px;
+  margin-left: 4px;
+}
+
+/* Boards grid */
+.boards-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 24px;
+}
+
+/* Individual board card */
+.board-card {
+  position: relative;
+  background-color: #ffffff;
+  border: 1px solid #f0e4dc;
+  border-radius: 18px;
+  overflow: hidden;
+  transition: box-shadow 0.25s ease, transform 0.25s ease;
+}
+
+.board-card:hover {
+  box-shadow: 0 16px 32px -8px rgba(70, 45, 30, 0.18);
+  transform: translateY(-2px);
+}
+
+.board-card-main {
+  display: block;
+}
+
+/* Collage preview — one big tile on the left, up to 3 stacked on the right.
+   If there's only one pin, the main tile fills the whole preview. */
+.board-card-preview {
+  width: 100%;
+  height: 200px;
+  background-color: #f5ebe1;
+  overflow: hidden;
+}
+
+.board-card-collage {
+  display: flex;
+  width: 100%;
+  height: 100%;
+  gap: 3px;
+}
+
+.board-card-collage-tile-main {
+  flex: 2;
+  width: auto;
+  height: 100%;
+  object-fit: cover;
+}
+
+.board-card-collage-side {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+  height: 100%;
+  overflow: hidden;
+}
+
+.board-card-collage-side .board-card-collage-tile {
+  flex: 1;
+  width: 100%;
+  min-height: 0;
+  object-fit: cover;
+}
+
+/* If side has no tiles (only 1 pin total), let the main tile fill everything */
+.board-card-collage-side:empty {
+  display: none;
+}
+
+.board-card-collage:has(.board-card-collage-side:empty)
+  .board-card-collage-tile-main {
+  flex: 1;
+  width: 100%;
+}
+
+.board-card-empty-preview {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #b5876f;
+  font-family: 'Playfair Display', Georgia, serif;
+  font-size: 16px;
+  font-style: italic;
+  letter-spacing: 0.02em;
+}
+
+.board-card-info {
+  padding: 16px 18px 18px;
+}
+
+.board-card-title {
+  font-family: 'Playfair Display', Georgia, serif;
+  font-size: 20px;
+  font-weight: 500;
+  color: #2a2018;
+  margin-bottom: 4px;
+  letter-spacing: 0.005em;
+}
+
+.board-card-description {
+  font-size: 13px;
+  color: #7a5c4d;
+  margin-bottom: 8px;
+  line-height: 1.5;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+}
+
+.board-card-meta {
+  font-size: 12px;
+  color: #a89383;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  font-weight: 600;
+  margin: 0;
+}
+
+/* Delete button — small × in the top-right corner, warm coral tint */
+.board-card-delete-form {
+  position: absolute;
+  top: 12px;
+  right: 12px;
+  margin: 0;
+  z-index: 2;
+}
+
+.board-card-delete-btn {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  border: none;
+  background-color: rgba(20, 16, 12, 0.72);
+  backdrop-filter: blur(6px);
+  -webkit-backdrop-filter: blur(6px);
+  color: #fdf8f3;
+  font-size: 20px;
+  line-height: 1;
+  cursor: pointer;
+  opacity: 0;
+  transform: translateY(-4px);
+  transition: opacity 0.2s ease, transform 0.2s ease, background-color 0.2s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.board-card:hover .board-card-delete-btn {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.board-card-delete-btn:hover {
+  background-color: #b8402c;
+}
+
+/* Empty state (no boards yet) */
+.boards-empty {
+  text-align: center;
+  padding: 60px 20px;
+  border: 1px dashed #d9c8b8;
+  border-radius: 20px;
+  background-color: rgba(255, 255, 255, 0.4);
+}
+
+.boards-empty-title {
+  font-family: 'Playfair Display', Georgia, serif;
+  font-size: 24px;
+  font-weight: 500;
+  color: #2a2018;
+  margin-bottom: 6px;
+}
+
+.boards-empty-hint {
+  font-size: 14px;
+  color: #8c7566;
+  margin: 0;
+}
+
+.boards-empty-hint a {
+  color: #d4775b;
+  font-weight: 600;
+  text-decoration: underline;
+}
+
+/* ============================================================
+   BOARD DETAIL PAGE
+   ============================================================ */
+.board-detail-page {
+  padding-top: 8px;
+}
+
+.board-detail-hero {
+  margin-bottom: 32px;
+}
+
+.board-detail-back-link {
+  display: inline-block;
+  margin-bottom: 20px;
+  font-size: 14px;
+  font-weight: 600;
+  color: #7a5c4d;
+  transition: color 0.15s ease;
+}
+
+.board-detail-back-link:hover {
+  color: #d4775b;
+}
+
+.board-detail-eyebrow {
+  display: block;
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: #b5876f;
+  margin-bottom: 10px;
+}
+
+.board-detail-title {
+  font-family: 'Playfair Display', Georgia, serif;
+  font-size: 40px;
+  font-weight: 500;
+  color: #2a2018;
+  margin-bottom: 6px;
+}
+
+.board-detail-description {
+  font-size: 15px;
+  color: #7a5c4d;
+  margin-bottom: 8px;
+  line-height: 1.6;
+}
+
+.board-detail-meta {
+  font-size: 12px;
+  color: #a89383;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  font-weight: 600;
+  margin: 0;
+}
+
+/* Pin grid on the board detail page */
+.board-pin-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+  gap: 20px;
+}
+
+.board-pin-card {
+  position: relative;
+  background-color: #ffffff;
+  border-radius: 14px;
+  overflow: hidden;
+  border: 1px solid #f0e4dc;
+  transition: box-shadow 0.25s ease, transform 0.25s ease;
+}
+
+.board-pin-card:hover {
+  box-shadow: 0 12px 28px -8px rgba(70, 45, 30, 0.2);
+  transform: translateY(-2px);
+}
+
+.board-pin-card-link {
+  display: block;
+}
+
+.board-pin-card-image-wrap {
+  width: 100%;
+  height: 200px;
+  overflow: hidden;
+  background-color: #f5ebe1;
+}
+
+.board-pin-card-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.board-pin-card-info {
+  padding: 12px 14px 14px;
+}
+
+.board-pin-card-title {
+  font-size: 14px;
+  font-weight: 600;
+  color: #2a2018;
+  margin-bottom: 3px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.board-pin-card-price {
+  font-size: 13px;
+  font-weight: 700;
+  color: #d4775b;
+  margin: 0;
+}
+
+/* Remove pin button — × in the top-right of each pin card */
+.board-pin-remove-form {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  margin: 0;
+  z-index: 2;
+}
+
+.board-pin-remove-btn {
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  border: none;
+  background-color: rgba(20, 16, 12, 0.72);
+  backdrop-filter: blur(6px);
+  -webkit-backdrop-filter: blur(6px);
+  color: #fdf8f3;
+  font-size: 18px;
+  line-height: 1;
+  cursor: pointer;
+  opacity: 0;
+  transform: translateY(-4px);
+  transition: opacity 0.2s ease, transform 0.2s ease, background-color 0.2s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.board-pin-card:hover .board-pin-remove-btn {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.board-pin-remove-btn:hover {
+  background-color: #b8402c;
+}
+
+/* ============================================================
+   ROOM GRID
+   ============================================================ */
+.room-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 20px;
+}
+
+/* ============================================================
+   PIN DETAIL PAGE
+   ============================================================ */
+.pin-detail-section {
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+.pin-detail-layout {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 32px;
+}
+
+.pin-detail-image-container {
+  border-radius: 12px;
+  overflow: hidden;
+}
+
+.pin-detail-image {
+  width: 100%;
+  object-fit: cover;
+}
+
+.pin-detail-title {
+  font-size: 26px;
+  margin-bottom: 12px;
+}
+
+.pin-detail-meta {
+  margin-bottom: 12px;
+  font-size: 14px;
+  color: #888;
+}
+
+.pin-meta-item {
+  color: #666;
+}
+
+.pin-meta-separator {
+  margin: 0 6px;
+  color: #ccc;
+}
+
+.pin-detail-price {
+  font-size: 24px;
+  font-weight: 700;
+  color: #d4775b;
+  margin-bottom: 16px;
+}
+
+.pin-detail-description {
+  font-size: 15px;
+  line-height: 1.7;
+  color: #444;
+  margin-bottom: 20px;
+}
+
+.pin-detail-tags {
+  margin-bottom: 24px;
+}
+
+.pin-detail-tags h3 {
+  margin-bottom: 8px;
+}
+
+.tag-list {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+
+.tag {
+  padding: 4px 14px;
+  background-color: #f5f5f5;
+  border-radius: 12px;
+  font-size: 13px;
+  color: #666;
+}
+
+.pin-actions {
+  margin-bottom: 20px;
+}
+
+.pin-actions h3 {
+  margin-bottom: 8px;
+}
+
+.save-to-board-form {
+  display: flex;
+  gap: 8px;
+  align-items: flex-end;
+  flex-wrap: wrap;
 }
 
 /* ============================================================
@@ -254,6 +888,55 @@ p {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
   gap: 16px;
+}
+
+.form-row {
+  display: flex;
+  gap: 8px;
+  align-items: flex-end;
+}
+
+.create-form {
+  max-width: 500px;
+  margin-bottom: 32px;
+}
+
+.create-pin-form {
+  max-width: 600px;
+}
+
+.filter-select,
+.filter-input {
+  width: 100%;
+  padding: 8px 10px;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  font-size: 14px;
+  font-family: inherit;
+}
+
+.board-description {
+  font-size: 15px;
+  color: #666;
+}
+
+.board-pin-count {
+  font-size: 14px;
+  color: #888;
+}
+
+/* ============================================================
+   EMPTY STATE
+   ============================================================ */
+.empty-state {
+  text-align: center;
+  padding: 40px 20px;
+  color: #999;
+}
+
+.empty-state a {
+  color: #d4775b;
+  font-weight: 600;
 }
 
 /* ============================================================

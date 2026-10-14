@@ -76,4 +76,8 @@ pinnest/
 
 ## Pages
 
-1. **Home** (`/`) — Home page
+1. **Home** (`/`) — Pinterest-style furniture feed
+2. **Pin Detail** (`/pins/:id`) — Single pin view
+3. **Create Pin** (`/pins/create`) — Add new pin form
+4. **Boards** (`/boards`) — View and create boards
+5. **Board Detail** (`/boards/:id`) — Pins in a board

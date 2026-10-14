@@ -14,6 +14,7 @@
 
       {{#if user}}
       <!-- Logged in — show the user's own sections -->
+      <li><a href="/boards" class="nav-link {{#if (eq activePage 'boards')}}nav-active{{/if}}">Boards</a></li>
       <li><a href="/logout" class="nav-link nav-logout">Logout</a></li>
       {{/if}}
     </ul>

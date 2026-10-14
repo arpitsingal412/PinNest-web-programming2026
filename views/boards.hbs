@@ -1,0 +1,55 @@
+<!-- Boards Page — luxurious list of the user's boards -->
+<section class="boards-page">
+  <!-- Header -->
+  <div class="boards-hero">
+    <p class="boards-hero-eyebrow">Your Collection</p>
+    <h1 class="boards-hero-title">Boards</h1>
+    <p class="boards-hero-subtitle">
+      {{#if boards.length}}
+        {{boards.length}} board{{#unless (eq boards.length 1)}}s{{/unless}} &middot; keep every idea in one place
+      {{else}}
+        Start with your first board below
+      {{/if}}
+    </p>
+  </div>
+
+  <!-- Create Board — inline card -->
+  <div class="boards-create-card">
+    <div class="boards-create-card-head">
+      <h2 class="boards-create-card-title">Create a new board</h2>
+      <p class="boards-create-card-hint">Group inspiration by room, style, or project.</p>
+    </div>
+    <form action="/boards/create" method="POST" class="boards-create-form">
+      <div class="boards-create-form-row">
+        <div class="form-group">
+          <label for="board-name">Board name</label>
+          <input type="text" id="board-name" name="name" class="form-input"
+                 placeholder="e.g. Living Room Ideas" required>
+        </div>
+        <div class="form-group">
+          <label for="board-description">Description <span class="form-label-optional">(optional)</span></label>
+          <input type="text" id="board-description" name="description" class="form-input"
+                 placeholder="A quick note about this board">
+        </div>
+      </div>
+      <button type="submit" class="btn btn-primary">Create Board</button>
+    </form>
+  </div>
+
+  <!-- Boards Grid -->
+  {{#if boards.length}}
+  <div class="boards-grid">
+    {{#each boards}}
+      {{> boardCard}}
+    {{/each}}
+  </div>
+  {{else}}
+  <div class="boards-empty">
+    <p class="boards-empty-title">No boards yet</p>
+    <p class="boards-empty-hint">Create one above, then start saving pins from the home feed.</p>
+  </div>
+  {{/if}}
+</section>
+
+<!-- Small script to confirm destructive form actions (delete board) -->
+<script src="/js/boards.js"></script>

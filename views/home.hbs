@@ -3,3 +3,17 @@
   <p class="home-hero-eyebrow">A Curated Collection</p>
   <h1 class="home-hero-title">Discover pieces made for the home you're building.</h1>
 </section>
+
+<section class="masonry-section" aria-label="Furniture inspiration feed">
+  {{#if pins.length}}
+  <div class="masonry-grid">
+    {{#each pins}}
+      {{> pinCardMasonry}}
+    {{/each}}
+  </div>
+  {{else}}
+  <div class="empty-state">
+    <p>No pins found. Run <code>node seed.js</code> to load the furniture catalogue.</p>
+  </div>
+  {{/if}}
+</section>

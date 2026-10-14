@@ -1,0 +1,76 @@
+<!-- Create Pin Page — form to add a new furniture/interior pin -->
+<section class="create-pin-section">
+  <h1>Create New Pin</h1>
+  <p class="section-subtitle">Share a furniture or interior design idea</p>
+
+  <form action="/pins/create" method="POST" class="create-pin-form" id="create-pin-form">
+    <div class="form-group">
+      <label for="pin-title">Title</label>
+      <input type="text" id="pin-title" name="title" class="form-input" placeholder="e.g. Modern Grey Sofa" required>
+    </div>
+
+    <div class="form-group">
+      <label for="pin-description">Description</label>
+      <textarea id="pin-description" name="description" class="form-textarea" rows="4" placeholder="Describe the furniture or interior idea..." required></textarea>
+    </div>
+
+    <div class="form-group">
+      <label for="pin-image-url">Image URL</label>
+      <input type="text" id="pin-image-url" name="imageUrl" class="form-input" placeholder="e.g. /images/sofa-modern-1.jpg" required>
+      <p class="form-help">Use a local image path from the /images/ folder</p>
+    </div>
+
+    <div class="form-row-group">
+      <div class="form-group">
+        <label for="pin-room">Room</label>
+        <select id="pin-room" name="room" class="form-select" required>
+          <option value="">Select Room</option>
+          <option value="Living Room">Living Room</option>
+          <option value="Bedroom">Bedroom</option>
+          <option value="Dining">Dining</option>
+          <option value="Study">Study</option>
+          <option value="Bathroom">Bathroom</option>
+          <option value="Kitchen">Kitchen</option>
+        </select>
+      </div>
+
+      <div class="form-group">
+        <label for="pin-category">Category</label>
+        <select id="pin-category" name="category" class="form-select" required>
+          <option value="">Select Category</option>
+          <option value="Sofa">Sofa</option>
+          <option value="Chair">Chair</option>
+          <option value="Table">Table</option>
+          <option value="Bed">Bed</option>
+          <option value="Lighting">Lighting</option>
+          <option value="Wall Decor">Wall Decor</option>
+          <option value="Storage">Storage</option>
+        </select>
+      </div>
+
+      <div class="form-group">
+        <label for="pin-style">Style</label>
+        <select id="pin-style" name="style" class="form-select" required>
+          <option value="">Select Style</option>
+          <option value="Modern">Modern</option>
+          <option value="Minimal">Minimal</option>
+          <option value="Industrial">Industrial</option>
+          <option value="Scandinavian">Scandinavian</option>
+          <option value="Boho">Boho</option>
+        </select>
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label for="pin-tags">Tags (comma separated)</label>
+      <input type="text" id="pin-tags" name="tags" class="form-input" placeholder="e.g. comfortable, grey, fabric, living room">
+    </div>
+
+    <div class="form-group">
+      <label for="pin-price">Price (₹)</label>
+      <input type="number" id="pin-price" name="price" class="form-input" placeholder="e.g. 45000" min="0" required>
+    </div>
+
+    <button type="submit" class="btn btn-primary btn-large">Create Pin</button>
+  </form>
+</section>

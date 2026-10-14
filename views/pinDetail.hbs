@@ -1,0 +1,65 @@
+<!-- Pin Detail Page — shows a single furniture/interior pin -->
+<section class="pin-detail-section">
+  <div class="pin-detail-layout">
+    <!-- Pin Image -->
+    <div class="pin-detail-image-container">
+      <img src="{{pin.imageUrl}}" alt="{{pin.title}}" class="pin-detail-image">
+    </div>
+
+    <!-- Pin Information -->
+    <div class="pin-detail-info">
+      <h1 class="pin-detail-title">{{pin.title}}</h1>
+
+      <div class="pin-detail-meta">
+        <span class="pin-meta-item">{{pin.category}}</span>
+        <span class="pin-meta-separator">·</span>
+        <span class="pin-meta-item">{{pin.style}}</span>
+        <span class="pin-meta-separator">·</span>
+        <span class="pin-meta-item">{{pin.room}}</span>
+      </div>
+
+      {{#if pin.price}}
+      <p class="pin-detail-price">{{formatPrice pin.price}}</p>
+      {{/if}}
+
+      <p class="pin-detail-description">{{pin.description}}</p>
+
+      {{#if pin.tags.length}}
+      <div class="pin-detail-tags">
+        <h3>Tags</h3>
+        <div class="tag-list">
+          {{#each pin.tags}}
+          <span class="tag">{{this}}</span>
+          {{/each}}
+        </div>
+      </div>
+      {{/if}}
+
+      <!-- Save to Board form -->
+      <div class="pin-actions">
+        <h3>Save to Board</h3>
+        {{#if boards.length}}
+        <form action="" method="POST" class="save-to-board-form" id="save-to-board-form">
+          <input type="hidden" name="pinId" value="{{pin._id}}">
+          <div class="form-row">
+            <label for="board-select">Choose a board</label>
+            <select id="board-select" name="boardId" class="filter-select" required>
+              {{#each boards}}
+              <option value="{{this._id}}">{{this.name}}</option>
+              {{/each}}
+            </select>
+          </div>
+          <button type="submit" class="btn btn-save" id="save-to-board-btn">Save to Board</button>
+        </form>
+        {{else if user}}
+        <p>No boards yet. <a href="/boards">Create a board first.</a></p>
+        {{else}}
+        <p><a href="/login">Log in</a> to save this pin to one of your boards.</p>
+        {{/if}}
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Page-specific JavaScript for pin interactions -->
+<script src="/js/pin.js"></script>

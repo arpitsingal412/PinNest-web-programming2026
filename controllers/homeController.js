@@ -1,12 +1,26 @@
 // controllers/homeController.js
-// Handles the home page
+// Handles the home page — displays pins in a Pinterest-style masonry feed
 
-// GET / — Display home page
+var Pin = require('../models/Pin');
+
+// GET / — Display home page with all pins
 var getHomePage = function(req, res) {
-  res.render('home', {
-    title: 'PinNest - Furniture & Interior Inspiration',
-    activePage: 'home'
-  });
+  Pin.find({}).lean()
+    .then(function(pins) {
+      res.render('home', {
+        title: 'PinNest - Furniture & Interior Inspiration',
+        pins: pins,
+        activePage: 'home'
+      });
+    })
+    .catch(function(err) {
+      console.log('Error fetching pins:', err.message);
+      res.render('home', {
+        title: 'PinNest - Furniture & Interior Inspiration',
+        pins: [],
+        activePage: 'home'
+      });
+    });
 };
 
 module.exports = {

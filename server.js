@@ -30,6 +30,13 @@ var hbs = exphbs.create({
   defaultLayout: 'main',
   extname: '.hbs',
   helpers: {
+    // Helper to format price with rupee symbol and commas
+    formatPrice: function(price) {
+      if (price === undefined || price === null) {
+        return '₹0';
+      }
+      return '₹' + price.toLocaleString('en-IN');
+    },
     // Helper to check equality (used in Handlebars conditionals)
     eq: function(a, b) {
       return a === b;
@@ -68,10 +75,14 @@ app.use(express.static(path.join(__dirname, 'public')));
 // Import routes
 var authRoutes = require('./routes/authRoutes');
 var homeRoutes = require('./routes/homeRoutes');
+var pinRoutes = require('./routes/pinRoutes');
+var boardRoutes = require('./routes/boardRoutes');
 
 // Use routes
 app.use('/', authRoutes);
 app.use('/', homeRoutes);
+app.use('/pins', pinRoutes);
+app.use('/boards', boardRoutes);
 
 // Start the HTTP server
 app.listen(PORT, function() {

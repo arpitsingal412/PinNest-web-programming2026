@@ -1,0 +1,54 @@
+<!-- Board Detail Page — shows all pins saved in a single board -->
+<section class="board-detail-page">
+  <!-- Header — board title, description, meta, back link -->
+  <div class="board-detail-hero">
+    <a href="/boards" class="board-detail-back-link">&larr; All boards</a>
+    <p class="board-detail-eyebrow">Board</p>
+    <h1 class="board-detail-title">{{board.name}}</h1>
+    {{#if board.description}}
+    <p class="board-detail-description">{{board.description}}</p>
+    {{/if}}
+    <p class="board-detail-meta">{{board.pins.length}} pin{{#unless (eq board.pins.length 1)}}s{{/unless}}</p>
+  </div>
+
+  {{#if board.pins.length}}
+  <div class="board-pin-grid">
+    {{#each board.pins}}
+      <!-- Each pin card is a wrapper so the Remove button can float over the image -->
+      <div class="board-pin-card">
+        <a href="/pins/{{this._id}}" class="board-pin-card-link">
+          <div class="board-pin-card-image-wrap">
+            <img src="{{this.imageUrl}}" alt="{{this.title}}" class="board-pin-card-image">
+          </div>
+          <div class="board-pin-card-info">
+            <h3 class="board-pin-card-title">{{this.title}}</h3>
+            {{#if this.price}}
+            <p class="board-pin-card-price">{{formatPrice this.price}}</p>
+            {{/if}}
+          </div>
+        </a>
+        <!-- Remove pin — small × button, confirms before submit -->
+        <form action="/boards/{{../board._id}}/remove-pin" method="POST"
+              class="board-pin-remove-form"
+              data-confirm="Remove &quot;{{this.title}}&quot; from this board?">
+          <input type="hidden" name="pinId" value="{{this._id}}">
+          <button type="submit" class="board-pin-remove-btn"
+                  aria-label="Remove {{this.title}} from board">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </form>
+      </div>
+    {{/each}}
+  </div>
+  {{else}}
+  <div class="boards-empty">
+    <p class="boards-empty-title">No pins here yet</p>
+    <p class="boards-empty-hint">
+      <a href="/">Head to the feed</a> and save something you love.
+    </p>
+  </div>
+  {{/if}}
+</section>
+
+<!-- Small script to confirm destructive form actions (delete board, remove pin) -->
+<script src="/js/boards.js"></script>
