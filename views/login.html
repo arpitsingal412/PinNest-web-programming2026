@@ -10,18 +10,18 @@
     </div>
 
     <!-- Error message from the controller -->
-    {{#if error}}
+    <% if (error) { %>
     <div class="auth-error-banner" role="alert">
-      <span>{{error}}</span>
+      <span><%= error %></span>
     </div>
-    {{/if}}
+    <% } %>
 
     <!-- Login form -->
     <form action="/login" method="POST" class="auth-form" id="login-form">
       <div class="form-group">
         <label for="login-email">Email Address</label>
         <input type="email" id="login-email" name="email" class="form-input"
-               placeholder="you@example.com" value="{{email}}" required>
+               placeholder="you@example.com" value="<%= email %>" required>
       </div>
 
       <div class="form-group">

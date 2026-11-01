@@ -27,7 +27,7 @@ var requireLogin = function(req, res, next) {
 };
 
 // GET /login — show the login form
-// layout: 'auth' — the plain gate layout with no navbar (see views/layouts/auth.hbs)
+// layout: 'layouts/auth' — the plain gate layout with no navbar (see views/layouts/auth.html)
 var getLogin = function(req, res) {
   // Already logged in? Go straight to the home page
   if (req.session.user) {
@@ -39,7 +39,7 @@ var getLogin = function(req, res) {
     activePage: 'login',
     error: '',
     email: '',
-    layout: 'auth'
+    layout: 'layouts/auth'
   });
 };
 
@@ -55,7 +55,7 @@ var postLogin = function(req, res) {
       activePage: 'login',
       error: 'Please enter both email and password.',
       email: email,
-      layout: 'auth'
+      layout: 'layouts/auth'
     });
   }
 
@@ -68,7 +68,7 @@ var postLogin = function(req, res) {
           activePage: 'login',
           error: 'No account found with that email.',
           email: email,
-          layout: 'auth'
+          layout: 'layouts/auth'
         });
       }
 
@@ -81,7 +81,7 @@ var postLogin = function(req, res) {
           activePage: 'login',
           error: 'Incorrect password.',
           email: email,
-          layout: 'auth'
+          layout: 'layouts/auth'
         });
       }
 
@@ -96,7 +96,7 @@ var postLogin = function(req, res) {
         activePage: 'login',
         error: 'Something went wrong. Please try again.',
         email: email,
-        layout: 'auth'
+        layout: 'layouts/auth'
       });
     });
 };
@@ -113,7 +113,7 @@ var getRegister = function(req, res) {
     error: '',
     name: '',
     email: '',
-    layout: 'auth'
+    layout: 'layouts/auth'
   });
 };
 
@@ -132,7 +132,7 @@ var postRegister = function(req, res) {
       error: message,
       name: name,
       email: email,
-      layout: 'auth'
+      layout: 'layouts/auth'
     });
   }
 

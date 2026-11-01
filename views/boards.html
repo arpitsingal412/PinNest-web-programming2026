@@ -5,11 +5,11 @@
     <p class="boards-hero-eyebrow">Your Collection</p>
     <h1 class="boards-hero-title">Boards</h1>
     <p class="boards-hero-subtitle">
-      {{#if boards.length}}
-        {{boards.length}} board{{#unless (eq boards.length 1)}}s{{/unless}} &middot; keep every idea in one place
-      {{else}}
+      <% if (boards.length) { %>
+        <%= boards.length %> board<% if (boards.length !== 1) { %>s<% } %> &middot; keep every idea in one place
+      <% } else { %>
         Start with your first board below
-      {{/if}}
+      <% } %>
     </p>
   </div>
 
@@ -37,18 +37,18 @@
   </div>
 
   <!-- Boards Grid -->
-  {{#if boards.length}}
+  <% if (boards.length) { %>
   <div class="boards-grid">
-    {{#each boards}}
-      {{> boardCard}}
-    {{/each}}
+    <% boards.forEach(function(board){ %>
+      <%- include('partials/boardCard.html', board) %>
+    <% }); %>
   </div>
-  {{else}}
+  <% } else { %>
   <div class="boards-empty">
     <p class="boards-empty-title">No boards yet</p>
     <p class="boards-empty-hint">Create one above, then start saving pins from the home feed.</p>
   </div>
-  {{/if}}
+  <% } %>
 </section>
 
 <!-- Small script to confirm destructive form actions (delete board) -->

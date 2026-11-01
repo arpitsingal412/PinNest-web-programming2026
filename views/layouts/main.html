@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="description" content="PinNest - Furniture & Interior Inspiration. Browse, save, and plan your dream rooms.">
-  <title>{{title}}</title>
+  <title><%= title %></title>
   <!-- Imported stylesheet — main application CSS (demonstrates imported stylesheet) -->
   <link rel="stylesheet" href="/css/style.css">
   <!-- Display serif font for the home page pin labels -->
@@ -12,12 +12,12 @@
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;600&display=swap" rel="stylesheet">
 </head>
 <body>
-  {{> navbar}}
+  <%- include('../partials/navbar.html') %>
 
 
 
   <main class="main-content">
-    {{{body}}}
+    <%- body %>
   </main>
 
   <!-- Shared JavaScript -->

@@ -8,7 +8,7 @@ A full-stack web application built for CSE2022 Web Programming.
 - **Logic Layer**: JavaScript (DOM, Events, JSON)
 - **Backend Layer**: Node.js + Express.js
 - **Data Layer**: MongoDB + Mongoose
-- **Template Engine**: Handlebars
+- **Template Engine**: EJS
 - **Architecture**: MVC
 
 ## Setup Instructions
@@ -65,7 +65,7 @@ pinnest/
 ├── models/             — Mongoose schemas (Data layer)
 ├── controllers/        — Route handlers (Logic)
 ├── routes/             — Express route definitions
-├── views/              — Handlebars templates (View layer)
+├── views/              — EJS templates (View layer)
 │   ├── layouts/        — Main layout
 │   └── partials/       — Reusable components
 └── public/             — Static files

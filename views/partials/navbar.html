@@ -1,0 +1,25 @@
+<!-- Navbar partial — navigation for all pages -->
+<!-- `user` comes from res.locals.user (set in server.js) -->
+<!-- Login/Register are intentionally NOT here — they live on the home page hero
+     (logged out) and on login.html/register.html, which link to each other -->
+<nav class="navbar" role="navigation" aria-label="Main navigation">
+  <div class="nav-container">
+    <a href="/" class="nav-logo" aria-label="PinNest Home">
+      <span class="logo-icon">📌</span>
+      <span class="logo-text">PinNest</span>
+    </a>
+
+    <ul class="nav-links">
+      <li><a href="/" class="nav-link <% if (activePage === 'home') { %>nav-active<% } %>">Home</a></li>
+      <li><a href="/explore" class="nav-link <% if (activePage === 'explore') { %>nav-active<% } %>">Explore</a></li>
+
+      <% if (user) { %>
+      <!-- Logged in — show the user's own sections -->
+      <li><a href="/boards" class="nav-link <% if (activePage === 'boards') { %>nav-active<% } %>">Boards</a></li>
+      <li><a href="/rooms" class="nav-link <% if (activePage === 'rooms') { %>nav-active<% } %>">Rooms</a></li>
+      <li><a href="/profile" class="nav-link <% if (activePage === 'profile') { %>nav-active<% } %>">Profile</a></li>
+      <li><a href="/logout" class="nav-link nav-logout">Logout</a></li>
+      <% } %>
+    </ul>
+  </div>
+</nav>

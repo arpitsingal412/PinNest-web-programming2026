@@ -2,28 +2,28 @@
      1. Default (no filters): the room-card grid with hover overlays
      2. Filtered: results grid + a "Back to spaces" link -->
 
-{{#if hasFilters}}
+<% if (hasFilters) { %>
   <!-- ==========================================================
        FILTERED RESULTS — shown when any filter query param is set
        ========================================================== -->
   <section class="explore-results-section" aria-label="Filtered results">
     <a href="/explore" class="explore-back-link">&larr; Back to spaces</a>
 
-    {{#if pins.length}}
+    <% if (pins.length) { %>
     <div class="masonry-grid">
-      {{#each pins}}
-        {{> pinCardMasonryExplore}}
-      {{/each}}
+      <% pins.forEach(function(pin){ %>
+        <%- include('partials/pinCardMasonryExplore.html', pin) %>
+      <% }); %>
     </div>
-    {{else}}
+    <% } else { %>
     <div class="explore-coming-soon">
       <p class="explore-coming-soon-title">Coming Soon</p>
       <p class="explore-coming-soon-hint">We don't have anything here yet.</p>
     </div>
-    {{/if}}
+    <% } %>
   </section>
 
-{{else}}
+<% } else { %>
   <!-- ==========================================================
        DEFAULT VIEW — the room grid, no heading text
        ========================================================== -->
@@ -98,4 +98,4 @@
 
     </div>
   </section>
-{{/if}}
+<% } %>

@@ -4,15 +4,15 @@
   <!-- Hero card: avatar + name + bio + edit button + stats -->
   <div class="profile-hero">
     <div class="profile-hero-main">
-      <img src="{{user.avatar}}" alt="{{user.name}}" class="profile-hero-avatar">
+      <img src="<%= user.avatar %>" alt="<%= user.name %>" class="profile-hero-avatar">
 
       <div class="profile-hero-info">
         <p class="profile-hero-eyebrow">Your Profile</p>
-        <h1 class="profile-hero-name">{{user.name}}</h1>
-        <p class="profile-hero-email">{{user.email}}</p>
-        {{#if user.bio}}
-        <p class="profile-hero-bio">{{user.bio}}</p>
-        {{/if}}
+        <h1 class="profile-hero-name"><%= user.name %></h1>
+        <p class="profile-hero-email"><%= user.email %></p>
+        <% if (user.bio) { %>
+        <p class="profile-hero-bio"><%= user.bio %></p>
+        <% } %>
         <a href="/profile/edit" class="btn btn-primary profile-edit-btn">Edit Profile</a>
       </div>
     </div>
@@ -20,18 +20,18 @@
     <!-- Stats row — pins saved across all boards, board count, room count -->
     <div class="profile-hero-stats">
       <div class="profile-stat">
-        <span class="profile-stat-number">{{totalSavedPins}}</span>
-        <span class="profile-stat-label">Pin{{#unless (eq totalSavedPins 1)}}s{{/unless}} Saved</span>
+        <span class="profile-stat-number"><%= totalSavedPins %></span>
+        <span class="profile-stat-label">Pin<% if (totalSavedPins !== 1) { %>s<% } %> Saved</span>
       </div>
       <div class="profile-stat-divider"></div>
       <div class="profile-stat">
-        <span class="profile-stat-number">{{boardCount}}</span>
-        <span class="profile-stat-label">Board{{#unless (eq boardCount 1)}}s{{/unless}}</span>
+        <span class="profile-stat-number"><%= boardCount %></span>
+        <span class="profile-stat-label">Board<% if (boardCount !== 1) { %>s<% } %></span>
       </div>
       <div class="profile-stat-divider"></div>
       <div class="profile-stat">
-        <span class="profile-stat-number">{{roomCount}}</span>
-        <span class="profile-stat-label">Room{{#unless (eq roomCount 1)}}s{{/unless}}</span>
+        <span class="profile-stat-number"><%= roomCount %></span>
+        <span class="profile-stat-label">Room<% if (roomCount !== 1) { %>s<% } %></span>
       </div>
     </div>
   </div>
@@ -46,18 +46,18 @@
       <a href="/boards" class="profile-section-link">Manage all &rarr;</a>
     </div>
 
-    {{#if boards.length}}
+    <% if (boards.length) { %>
     <div class="boards-grid">
-      {{#each boards}}
-        {{> boardCard}}
-      {{/each}}
+      <% boards.forEach(function(board){ %>
+        <%- include('partials/boardCard.html', board) %>
+      <% }); %>
     </div>
-    {{else}}
+    <% } else { %>
     <div class="boards-empty">
       <p class="boards-empty-title">No boards yet</p>
       <p class="boards-empty-hint"><a href="/boards">Create your first board</a> to start saving pins.</p>
     </div>
-    {{/if}}
+    <% } %>
   </div>
 
   <!-- My Rooms -->
@@ -70,18 +70,18 @@
       <a href="/rooms/create" class="profile-section-link">Plan new &rarr;</a>
     </div>
 
-    {{#if rooms.length}}
+    <% if (rooms.length) { %>
     <div class="room-grid">
-      {{#each rooms}}
-        {{> roomCard}}
-      {{/each}}
+      <% rooms.forEach(function(room){ %>
+        <%- include('partials/roomCard.html', room) %>
+      <% }); %>
     </div>
-    {{else}}
+    <% } else { %>
     <div class="boards-empty">
       <p class="boards-empty-title">No rooms yet</p>
       <p class="boards-empty-hint"><a href="/rooms/create">Plan your first room</a> with a budget.</p>
     </div>
-    {{/if}}
+    <% } %>
   </div>
 
 </section>

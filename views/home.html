@@ -5,15 +5,15 @@
 </section>
 
 <section class="masonry-section" aria-label="Furniture inspiration feed">
-  {{#if pins.length}}
+  <% if (pins.length) { %>
   <div class="masonry-grid">
-    {{#each pins}}
-      {{> pinCardMasonry}}
-    {{/each}}
+    <% pins.forEach(function(pin){ %>
+      <%- include('partials/pinCardMasonry.html', pin) %>
+    <% }); %>
   </div>
-  {{else}}
+  <% } else { %>
   <div class="empty-state">
     <p>No pins found. Run <code>node seed.js</code> to load the furniture catalogue.</p>
   </div>
-  {{/if}}
+  <% } %>
 </section>

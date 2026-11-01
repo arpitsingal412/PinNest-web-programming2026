@@ -1,0 +1,45 @@
+<!-- Board Card partial — a warm, editorial card with a collage preview -->
+<!-- Delete button posts to /boards/:id/delete; JS confirms before submitting -->
+<article class="board-card">
+  <a href="/boards/<%= _id %>" class="board-card-main">
+    <div class="board-card-preview">
+      <% if (pins.length) { %>
+        <div class="board-card-collage">
+          <% pins.forEach(function(pin, index){ %>
+            <% if (index === 0) { %>
+              <img src="<%= pin.imageUrl %>" alt="<%= pin.title %>" class="board-card-collage-tile board-card-collage-tile-main">
+            <% } %>
+          <% }); %>
+          <div class="board-card-collage-side">
+            <% pins.forEach(function(pin, index){ %>
+              <% if (index !== 0) { %>
+                <% if (index === 1) { %><img src="<%= pin.imageUrl %>" alt="<%= pin.title %>" class="board-card-collage-tile"><% } %>
+                <% if (index === 2) { %><img src="<%= pin.imageUrl %>" alt="<%= pin.title %>" class="board-card-collage-tile"><% } %>
+                <% if (index === 3) { %><img src="<%= pin.imageUrl %>" alt="<%= pin.title %>" class="board-card-collage-tile"><% } %>
+              <% } %>
+            <% }); %>
+          </div>
+        </div>
+      <% } else { %>
+        <div class="board-card-empty-preview">
+          <span>Empty</span>
+        </div>
+      <% } %>
+    </div>
+    <div class="board-card-info">
+      <h3 class="board-card-title"><%= name %></h3>
+      <% if (locals.description) { %>
+      <p class="board-card-description"><%= description %></p>
+      <% } %>
+      <p class="board-card-meta"><%= pins.length %> pin<% if (pins.length !== 1) { %>s<% } %></p>
+    </div>
+  </a>
+
+  <!-- Delete Board — sits in the corner, confirms before submitting -->
+  <form action="/boards/<%= _id %>/delete" method="POST" class="board-card-delete-form"
+        data-confirm="Delete this board? Pins inside stay in your library, but the board itself will be removed.">
+    <button type="submit" class="board-card-delete-btn" aria-label="Delete board <%= name %>">
+      <span aria-hidden="true">&times;</span>
+    </button>
+  </form>
+</article>

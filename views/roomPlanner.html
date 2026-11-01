@@ -53,28 +53,28 @@
       <h2>Available Furniture Items</h2>
       <p>Click "Add" to add items to your room</p>
 
-      {{#if pins.length}}
+      <% if (pins.length) { %>
       <div class="room-planner-items-grid">
-        {{#each pins}}
-        <div class="room-planner-available-item" id="available-pin-{{_id}}"
-             data-id="{{_id}}"
-             data-title="{{title}}"
-             data-price="{{price}}"
-             data-image="{{imageUrl}}">
-          <img src="{{imageUrl}}" alt="{{title}}" class="room-planner-item-image">
+        <% pins.forEach(function(pin){ %>
+        <div class="room-planner-available-item" id="available-pin-<%= pin._id %>"
+             data-id="<%= pin._id %>"
+             data-title="<%= pin.title %>"
+             data-price="<%= pin.price %>"
+             data-image="<%= pin.imageUrl %>">
+          <img src="<%= pin.imageUrl %>" alt="<%= pin.title %>" class="room-planner-item-image">
           <div class="room-planner-item-info">
-            <p class="room-planner-item-title">{{title}}</p>
-            <p class="room-planner-item-price">₹{{price}}</p>
+            <p class="room-planner-item-title"><%= pin.title %></p>
+            <p class="room-planner-item-price">₹<%= pin.price %></p>
           </div>
-          <button type="button" class="btn btn-small btn-add-item" data-pin-id="{{_id}}">Add</button>
+          <button type="button" class="btn btn-small btn-add-item" data-pin-id="<%= pin._id %>">Add</button>
         </div>
-        {{/each}}
+        <% }); %>
       </div>
-      {{else}}
+      <% } else { %>
       <div class="empty-state">
         <p>No furniture items available. Run <code>node seed.js</code> to load the catalogue.</p>
       </div>
-      {{/if}}
+      <% } %>
     </div>
 
     <!-- Selected Items and Budget -->
