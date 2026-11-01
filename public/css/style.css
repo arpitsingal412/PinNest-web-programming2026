@@ -181,14 +181,38 @@ p {
   color: #ffffff;
 }
 
+.btn-secondary {
+  background-color: #f0f0f0;
+  color: #2c2c2c;
+}
+
 .btn-save {
   background-color: #d4775b;
   color: #ffffff;
 }
 
+.btn-remove {
+  background-color: #f5f5f5;
+  color: #c62828;
+  border: 1px solid #e0e0e0;
+  padding: 6px 16px;
+  font-size: 13px;
+}
+
+.btn-small {
+  padding: 6px 14px;
+  font-size: 13px;
+  border-radius: 16px;
+}
+
 .btn-large {
   padding: 14px 32px;
   font-size: 16px;
+}
+
+.btn-add-item {
+  background-color: #d4775b;
+  color: #ffffff;
 }
 
 /* ============================================================
@@ -755,6 +779,64 @@ p {
   gap: 20px;
 }
 
+.room-card {
+  background-color: #ffffff;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.08);
+  padding: 20px;
+}
+
+.room-card-link {
+  display: block;
+}
+
+.room-card-header {
+  margin-bottom: 12px;
+}
+
+.room-card-title {
+  font-size: 18px;
+  font-weight: 600;
+  color: #1a1a1a;
+  margin-bottom: 4px;
+}
+
+.room-card-type {
+  font-size: 13px;
+  color: #888;
+  background-color: #f5f5f5;
+  padding: 3px 10px;
+  border-radius: 10px;
+  display: inline-block;
+}
+
+.room-card-budget {
+  margin-bottom: 12px;
+}
+
+.room-card-budget-label {
+  font-size: 12px;
+  color: #888;
+  text-transform: uppercase;
+  margin-bottom: 2px;
+}
+
+.room-card-budget-amount {
+  font-size: 20px;
+  font-weight: 700;
+  color: #d4775b;
+}
+
+.room-card-stats {
+  display: flex;
+  justify-content: space-between;
+  font-size: 13px;
+  color: #666;
+  border-top: 1px solid #f0f0f0;
+  padding-top: 12px;
+}
+
 /* ============================================================
    PIN DETAIL PAGE
    ============================================================ */
@@ -884,6 +966,12 @@ p {
   resize: vertical;
 }
 
+.form-help {
+  font-size: 12px;
+  color: #999;
+  margin-top: 4px;
+}
+
 .form-row-group {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
@@ -905,6 +993,54 @@ p {
   max-width: 600px;
 }
 
+/* ============================================================
+   EXPLORE / SEARCH PAGE
+   ============================================================ */
+.explore-section h1 {
+  margin-bottom: 20px;
+}
+
+.search-bar {
+  display: flex;
+  gap: 8px;
+  margin-bottom: 20px;
+}
+
+.search-input {
+  flex: 1;
+  padding: 12px 18px;
+  border: 1px solid #ddd;
+  border-radius: 24px;
+  font-size: 15px;
+  font-family: inherit;
+}
+
+.filter-controls {
+  display: flex;
+  gap: 12px;
+  flex-wrap: wrap;
+  align-items: flex-end;
+  margin-bottom: 24px;
+  padding: 16px;
+  background-color: #ffffff;
+  border-radius: 12px;
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.06);
+}
+
+.filter-group {
+  flex: 1;
+  min-width: 140px;
+}
+
+.filter-group label {
+  display: block;
+  font-size: 12px;
+  font-weight: 600;
+  color: #888;
+  text-transform: uppercase;
+  margin-bottom: 4px;
+}
+
 .filter-select,
 .filter-input {
   width: 100%;
@@ -915,6 +1051,253 @@ p {
   font-family: inherit;
 }
 
+.result-count {
+  margin-bottom: 16px;
+  font-size: 14px;
+  color: #888;
+}
+
+/* ============================================================
+   PROFILE PAGE (premium editorial layout)
+   ============================================================ */
+.profile-page {
+  padding-top: 12px;
+}
+
+/* --- Hero card: avatar + info + stats --- */
+.profile-hero {
+  background: linear-gradient(180deg, #ffffff 0%, #fbf5ee 100%);
+  border: 1px solid #ecdfd2;
+  border-radius: 24px;
+  padding: 40px 40px 32px;
+  margin-bottom: 48px;
+  box-shadow: 0 8px 32px -12px rgba(70, 45, 30, 0.14);
+}
+
+.profile-hero-main {
+  display: flex;
+  align-items: center;
+  gap: 32px;
+  margin-bottom: 32px;
+}
+
+.profile-hero-avatar {
+  width: 128px;
+  height: 128px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 4px solid #ffffff;
+  box-shadow: 0 6px 20px -4px rgba(70, 45, 30, 0.2);
+  flex-shrink: 0;
+}
+
+.profile-hero-info {
+  flex: 1;
+  min-width: 0;
+}
+
+.profile-hero-eyebrow {
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: #b5876f;
+  margin-bottom: 8px;
+}
+
+.profile-hero-name {
+  font-family: 'Playfair Display', Georgia, serif;
+  font-size: 40px;
+  font-weight: 500;
+  color: #2a2018;
+  letter-spacing: -0.005em;
+  margin-bottom: 4px;
+  line-height: 1.15;
+}
+
+.profile-hero-email {
+  font-size: 14px;
+  color: #8c7566;
+  margin-bottom: 12px;
+}
+
+.profile-hero-bio {
+  font-size: 15px;
+  color: #4a3a2f;
+  line-height: 1.6;
+  margin-bottom: 20px;
+  max-width: 640px;
+}
+
+.profile-edit-btn {
+  padding: 10px 24px;
+  font-size: 14px;
+}
+
+/* --- Stats row inside the hero --- */
+.profile-hero-stats {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 40px;
+  padding: 24px 20px 16px;
+  border-top: 1px solid #ecdfd2;
+}
+
+.profile-stat {
+  text-align: center;
+}
+
+.profile-stat-number {
+  display: block;
+  font-family: 'Playfair Display', Georgia, serif;
+  font-size: 32px;
+  font-weight: 500;
+  color: #d4775b;
+  line-height: 1;
+  margin-bottom: 6px;
+}
+
+.profile-stat-label {
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: #8c7566;
+}
+
+.profile-stat-divider {
+  width: 1px;
+  height: 40px;
+  background-color: #e6d9cb;
+}
+
+/* --- Section blocks (My Boards, My Rooms) --- */
+.profile-section-block {
+  margin-bottom: 56px;
+}
+
+.profile-section-head {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  margin-bottom: 24px;
+  padding-bottom: 16px;
+  border-bottom: 1px solid #ecdfd2;
+}
+
+.profile-section-eyebrow {
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: #b5876f;
+  margin-bottom: 6px;
+}
+
+.profile-section-title {
+  font-family: 'Playfair Display', Georgia, serif;
+  font-size: 28px;
+  font-weight: 500;
+  color: #2a2018;
+  margin: 0;
+  line-height: 1.1;
+}
+
+.profile-section-link {
+  font-size: 13px;
+  font-weight: 600;
+  color: #d4775b;
+  letter-spacing: 0.02em;
+  transition: color 0.15s ease;
+  padding-bottom: 4px;
+}
+
+.profile-section-link:hover {
+  color: #b8402c;
+}
+
+/* ============================================================
+   EDIT PROFILE PAGE
+   ============================================================ */
+.edit-profile-page {
+  padding-top: 8px;
+  max-width: 640px;
+  margin: 0 auto;
+}
+
+.edit-profile-header {
+  margin-bottom: 28px;
+}
+
+.edit-profile-back-link {
+  display: inline-block;
+  margin-bottom: 20px;
+  font-size: 14px;
+  font-weight: 600;
+  color: #7a5c4d;
+  transition: color 0.15s ease;
+}
+
+.edit-profile-back-link:hover {
+  color: #d4775b;
+}
+
+.edit-profile-eyebrow {
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: #b5876f;
+  margin-bottom: 10px;
+}
+
+.edit-profile-title {
+  font-family: 'Playfair Display', Georgia, serif;
+  font-size: 36px;
+  font-weight: 500;
+  color: #2a2018;
+  margin-bottom: 6px;
+}
+
+.edit-profile-hint {
+  font-size: 14px;
+  color: #8c7566;
+  margin: 0;
+}
+
+.edit-profile-card {
+  background-color: #ffffff;
+  border: 1px solid #ecdfd2;
+  border-radius: 20px;
+  padding: 32px 32px 28px;
+  box-shadow: 0 2px 12px -4px rgba(70, 45, 30, 0.08);
+}
+
+.edit-profile-actions {
+  display: flex;
+  gap: 12px;
+  justify-content: flex-end;
+  margin-top: 8px;
+}
+
+/* ============================================================
+   SECTION HEADER (legacy — still used by roomPlanner, room detail)
+   ============================================================ */
+.section-header {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  flex-wrap: wrap;
+  margin-bottom: 24px;
+}
+
+.section-subtitle {
+  font-size: 15px;
+  color: #888;
+  margin-bottom: 24px;
+}
+
 .board-description {
   font-size: 15px;
   color: #666;
@@ -923,6 +1306,237 @@ p {
 .board-pin-count {
   font-size: 14px;
   color: #888;
+}
+
+/* ============================================================
+   ROOM PLANNER PAGE
+   ============================================================ */
+.room-planner-section h1 {
+  margin-bottom: 4px;
+}
+
+.room-planner-form {
+  max-width: 100%;
+}
+
+.room-details-card {
+  background-color: #ffffff;
+  padding: 24px;
+  border-radius: 12px;
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.08);
+  margin-bottom: 24px;
+}
+
+.room-planner-available {
+  margin-bottom: 24px;
+}
+
+.room-planner-items-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+  gap: 16px;
+}
+
+.room-planner-available-item {
+  background-color: #ffffff;
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.08);
+  padding: 10px;
+  text-align: center;
+}
+
+.room-planner-item-image {
+  width: 100%;
+  height: 120px;
+  object-fit: cover;
+  border-radius: 8px;
+  margin-bottom: 8px;
+}
+
+.room-planner-item-title {
+  font-size: 13px;
+  font-weight: 600;
+  color: #2c2c2c;
+  margin-bottom: 4px;
+}
+
+.room-planner-item-price {
+  font-size: 14px;
+  font-weight: 700;
+  color: #d4775b;
+  margin-bottom: 8px;
+}
+
+.room-planner-selected {
+  background-color: #ffffff;
+  padding: 24px;
+  border-radius: 12px;
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.08);
+  margin-bottom: 24px;
+}
+
+.selected-items-list {
+  margin-bottom: 20px;
+}
+
+.selected-item-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 10px 0;
+  border-bottom: 1px solid #f0f0f0;
+}
+
+.selected-item-name {
+  font-size: 15px;
+  font-weight: 500;
+  color: #2c2c2c;
+}
+
+.selected-item-price {
+  font-size: 15px;
+  font-weight: 600;
+  color: #d4775b;
+  margin: 0 16px;
+}
+
+.empty-selection {
+  color: #aaa;
+  font-size: 14px;
+  text-align: center;
+  padding: 20px;
+}
+
+/* Budget Summary */
+.budget-summary {
+  border-top: 2px solid #f0f0f0;
+  padding-top: 16px;
+}
+
+.budget-row {
+  display: flex;
+  justify-content: space-between;
+  padding: 6px 0;
+  font-size: 16px;
+}
+
+.budget-remaining-row {
+  font-size: 18px;
+  font-weight: 700;
+  padding-top: 10px;
+  border-top: 1px solid #f0f0f0;
+  margin-top: 6px;
+}
+
+/* ============================================================
+   ROOM DETAIL PAGE
+   ============================================================ */
+.room-detail-section {
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.room-type-badge {
+  font-size: 13px;
+  color: #888;
+  background-color: #f5f5f5;
+  padding: 4px 12px;
+  border-radius: 10px;
+}
+
+.budget-overview-card {
+  background-color: #ffffff;
+  padding: 24px;
+  border-radius: 12px;
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.08);
+  margin-bottom: 24px;
+}
+
+.budget-overview-row {
+  display: flex;
+  justify-content: space-between;
+  padding: 8px 0;
+  font-size: 16px;
+}
+
+.budget-label {
+  color: #666;
+}
+
+.budget-value {
+  font-weight: 600;
+  color: #2c2c2c;
+}
+
+/* Budget status classes (also defined in embedded stylesheet on Room Planner) */
+.budget-ok {
+  color: #2e7d32;
+}
+
+.budget-exceeded {
+  color: #c62828;
+}
+
+.room-items-section {
+  margin-bottom: 24px;
+}
+
+.room-items-list {
+  background-color: #ffffff;
+  border-radius: 12px;
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.08);
+  overflow: hidden;
+}
+
+.room-item-row {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  padding: 14px 20px;
+  border-bottom: 1px solid #f5f5f5;
+}
+
+.room-item-row:last-child {
+  border-bottom: none;
+}
+
+.room-item-thumb {
+  width: 60px;
+  height: 60px;
+  object-fit: cover;
+  border-radius: 8px;
+}
+
+.room-item-info {
+  flex: 1;
+}
+
+.room-item-info h3 {
+  font-size: 15px;
+  margin-bottom: 4px;
+}
+
+.room-item-price {
+  font-size: 14px;
+  font-weight: 600;
+  color: #d4775b;
+}
+
+.room-item-remove-form {
+  flex-shrink: 0;
+}
+
+.add-item-section {
+  padding: 20px;
+  background-color: #fef6f3;
+  border-radius: 12px;
+  text-align: center;
+}
+
+.add-item-section a {
+  color: #d4775b;
+  font-weight: 600;
 }
 
 /* ============================================================
@@ -953,6 +1567,208 @@ p {
 .footer-content p {
   font-size: 13px;
   color: #999;
+}
+
+/* ============================================================
+   SHOP BY SPACE (Explore page — room cards with hover reveal)
+   ============================================================ */
+.shop-by-space-section {
+  margin-bottom: 48px;
+}
+
+.space-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+  margin-top: 24px;
+}
+
+.space-card {
+  position: relative;
+  border-radius: 16px;
+  overflow: hidden;
+  aspect-ratio: 7 / 8;
+  background-color: #ececec;
+}
+
+.space-card-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  transition: transform 0.4s ease;
+}
+
+.space-card:hover .space-card-image {
+  transform: scale(1.04);
+}
+
+.space-card-label {
+  position: absolute;
+  left: 16px;
+  bottom: 16px;
+  padding: 8px 18px;
+  border-radius: 30px;
+  background-color: rgba(31, 26, 22, 0.75);
+  color: #fdf8f3;
+  font-family: 'Playfair Display', Georgia, serif;
+  font-size: 15px;
+  font-weight: 500;
+  letter-spacing: 0.01em;
+  z-index: 1;
+}
+
+.space-card-overlay {
+  position: absolute;
+  inset: 0;
+  background-color: rgba(31, 26, 22, 0.85);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  padding: 20px;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.25s ease;
+  z-index: 2;
+}
+
+.space-card:hover .space-card-overlay {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.space-card-overlay a {
+  font-family: 'Playfair Display', Georgia, serif;
+  font-size: 15px;
+  color: #fdf8f3;
+  background-color: rgba(253, 248, 243, 0.14);
+  border: 1px solid rgba(253, 248, 243, 0.3);
+  padding: 7px 20px;
+  border-radius: 20px;
+  text-align: center;
+  transition: background-color 0.2s ease;
+}
+
+.space-card-overlay a:hover {
+  background-color: rgba(212, 119, 91, 0.85);
+  border-color: transparent;
+}
+
+/* ============================================================
+   EXPLORE FILTERED RESULTS
+   ============================================================ */
+.explore-results-section {
+  padding-top: 12px;
+}
+
+.explore-back-link {
+  display: inline-block;
+  margin-bottom: 24px;
+  font-size: 14px;
+  font-weight: 600;
+  color: #7a5c4d;
+  letter-spacing: 0.02em;
+  transition: color 0.15s ease;
+}
+
+.explore-back-link:hover {
+  color: #d4775b;
+}
+
+/* Coming Soon empty state — shown when a filter yields no pins */
+.explore-coming-soon {
+  text-align: center;
+  padding: 80px 20px;
+  border: 1px dashed #d9c8b8;
+  border-radius: 20px;
+  background-color: rgba(255, 255, 255, 0.4);
+}
+
+.explore-coming-soon-title {
+  font-family: 'Playfair Display', Georgia, serif;
+  font-size: 28px;
+  font-weight: 500;
+  color: #2a2018;
+  letter-spacing: 0.01em;
+  margin-bottom: 8px;
+}
+
+.explore-coming-soon-hint {
+  font-size: 14px;
+  color: #8c7566;
+  margin: 0;
+}
+
+/* ============================================================
+   RESPONSIVE LAYOUT
+   ============================================================ */
+@media (max-width: 768px) {
+  .nav-container {
+    flex-direction: column;
+    gap: 12px;
+  }
+
+  .nav-links {
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+
+  .pin-grid {
+    grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
+  }
+
+  .masonry-grid {
+    column-count: 2;
+  }
+
+  .space-grid {
+    grid-template-columns: 1fr;
+  }
+
+  /* Side panel drops below the card instead of sliding right (no room) */
+  .browse-side-panel {
+    left: 0;
+    top: calc(100% + 8px);
+    width: 100%;
+    height: auto;
+    transform: translateY(-8px);
+  }
+
+  .browse-side-panel-open {
+    transform: translateY(0);
+  }
+
+  .browse-side-panel-inner {
+    padding: 14px 16px;
+  }
+
+  .pin-detail-layout {
+    grid-template-columns: 1fr;
+  }
+
+  .search-bar {
+    flex-direction: column;
+  }
+
+  .filter-controls {
+    flex-direction: column;
+  }
+
+  .profile-header {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .profile-stats {
+    justify-content: center;
+  }
+
+  .section-header {
+    flex-direction: column;
+    align-items: flex-start;
+  }
 }
 
 /* ============================================================

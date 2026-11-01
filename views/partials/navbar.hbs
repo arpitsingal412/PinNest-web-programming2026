@@ -11,10 +11,13 @@
 
     <ul class="nav-links">
       <li><a href="/" class="nav-link {{#if (eq activePage 'home')}}nav-active{{/if}}">Home</a></li>
+      <li><a href="/explore" class="nav-link {{#if (eq activePage 'explore')}}nav-active{{/if}}">Explore</a></li>
 
       {{#if user}}
       <!-- Logged in — show the user's own sections -->
       <li><a href="/boards" class="nav-link {{#if (eq activePage 'boards')}}nav-active{{/if}}">Boards</a></li>
+      <li><a href="/rooms" class="nav-link {{#if (eq activePage 'rooms')}}nav-active{{/if}}">Rooms</a></li>
+      <li><a href="/profile" class="nav-link {{#if (eq activePage 'profile')}}nav-active{{/if}}">Profile</a></li>
       <li><a href="/logout" class="nav-link nav-logout">Logout</a></li>
       {{/if}}
     </ul>

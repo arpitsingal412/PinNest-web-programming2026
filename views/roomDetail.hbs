@@ -1,0 +1,61 @@
+<!-- Room Detail Page — shows a single room with items and budget -->
+<section class="room-detail-section">
+  <div class="section-header">
+    <h1>{{room.name}}</h1>
+    <span class="room-type-badge">{{room.roomType}}</span>
+    <a href="/rooms" class="btn btn-secondary">Back to Rooms</a>
+  </div>
+
+  <!-- Budget Overview -->
+  <div class="budget-overview-card">
+    <div class="budget-overview-row">
+      <span class="budget-label">Budget:</span>
+      <span class="budget-value">{{formatPrice room.budget}}</span>
+    </div>
+    <div class="budget-overview-row">
+      <span class="budget-label">Total Spent:</span>
+      <span class="budget-value">{{formatPrice room.total}}</span>
+    </div>
+    <div class="budget-overview-row">
+      <span class="budget-label">Remaining:</span>
+      {{#if isOverBudget}}
+      <span class="budget-value budget-exceeded">Budget Exceeded by {{formatPrice remaining}}</span>
+      {{else}}
+      <span class="budget-value budget-ok">{{formatPrice remaining}}</span>
+      {{/if}}
+    </div>
+  </div>
+
+  <!-- Room Items -->
+  <div class="room-items-section">
+    <h2>Items in Room ({{room.items.length}})</h2>
+
+    {{#if room.items.length}}
+    <div class="room-items-list">
+      {{#each room.items}}
+      <div class="room-item-row">
+        <img src="{{this.imageUrl}}" alt="{{this.title}}" class="room-item-thumb">
+        <div class="room-item-info">
+          <h3>{{this.title}}</h3>
+          <p class="room-item-price">{{formatPrice this.price}}</p>
+        </div>
+        <form action="/rooms/{{../room._id}}/remove-item" method="POST" class="room-item-remove-form">
+          <input type="hidden" name="itemId" value="{{this._id}}">
+          <button type="submit" class="btn btn-remove">Remove</button>
+        </form>
+      </div>
+      {{/each}}
+    </div>
+    {{else}}
+    <div class="empty-state">
+      <p>No items in this room yet.</p>
+    </div>
+    {{/if}}
+  </div>
+
+  <!-- Add More Items -->
+  <div class="add-item-section">
+    <h2>Add More Items</h2>
+    <p>Visit the <a href="/rooms/create">Room Planner</a> to create a new room, or <a href="/explore">explore pins</a> to find furniture.</p>
+  </div>
+</section>

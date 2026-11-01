@@ -1,0 +1,20 @@
+<!-- My Rooms Page — list all rooms and link to Room Planner -->
+<section class="rooms-section">
+  <div class="section-header">
+    <h1>My Rooms</h1>
+    <a href="/rooms/create" class="btn btn-primary">Create New Room</a>
+  </div>
+
+  {{#if rooms.length}}
+  <div class="room-grid">
+    {{#each rooms}}
+      {{> roomCard}}
+    {{/each}}
+  </div>
+  {{else}}
+  <div class="empty-state">
+    <p>No rooms planned yet. Start planning your dream room!</p>
+    <a href="/rooms/create" class="btn btn-primary">Create Room</a>
+  </div>
+  {{/if}}
+</section>

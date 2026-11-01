@@ -1,0 +1,113 @@
+<!-- Room Planner Page — unique project feature -->
+<!-- Demonstrates: embedded stylesheet (course handout: embedded style sheets) -->
+<style>
+  /* Embedded stylesheet — Room Planner specific styles */
+  /* This demonstrates the embedded stylesheet concept from the CSS handout */
+  .budget-ok {
+    color: #2e7d32;
+    font-weight: bold;
+  }
+  .budget-exceeded {
+    color: #c62828;
+    font-weight: bold;
+  }
+  .room-planner-available-item.added {
+    opacity: 0.5;
+  }
+</style>
+
+<section class="room-planner-section">
+  <h1>Room Planner</h1>
+  <p class="section-subtitle">Plan your dream room and manage your budget</p>
+
+  <form action="/rooms/create" method="POST" id="room-form" class="room-planner-form">
+    <!-- Room Details -->
+    <div class="room-details-card">
+      <h2>Room Details</h2>
+      <div class="form-group">
+        <label for="room-name">Room Name</label>
+        <input type="text" id="room-name" name="name" class="form-input" placeholder="e.g. My Dream Living Room" required>
+      </div>
+      <div class="form-row-group">
+        <div class="form-group">
+          <label for="room-type">Room Type</label>
+          <select id="room-type" name="roomType" class="form-select" required>
+            <option value="">Select Room Type</option>
+            <option value="Living Room">Living Room</option>
+            <option value="Bedroom">Bedroom</option>
+            <option value="Dining">Dining</option>
+            <option value="Study">Study</option>
+            <option value="Bathroom">Bathroom</option>
+            <option value="Kitchen">Kitchen</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label for="room-budget">Budget (₹)</label>
+          <input type="number" id="room-budget" name="budget" class="form-input" placeholder="e.g. 100000" min="0" required>
+        </div>
+      </div>
+    </div>
+
+    <!-- Available Furniture Items (from database) -->
+    <div class="room-planner-available">
+      <h2>Available Furniture Items</h2>
+      <p>Click "Add" to add items to your room</p>
+
+      {{#if pins.length}}
+      <div class="room-planner-items-grid">
+        {{#each pins}}
+        <div class="room-planner-available-item" id="available-pin-{{_id}}"
+             data-id="{{_id}}"
+             data-title="{{title}}"
+             data-price="{{price}}"
+             data-image="{{imageUrl}}">
+          <img src="{{imageUrl}}" alt="{{title}}" class="room-planner-item-image">
+          <div class="room-planner-item-info">
+            <p class="room-planner-item-title">{{title}}</p>
+            <p class="room-planner-item-price">₹{{price}}</p>
+          </div>
+          <button type="button" class="btn btn-small btn-add-item" data-pin-id="{{_id}}">Add</button>
+        </div>
+        {{/each}}
+      </div>
+      {{else}}
+      <div class="empty-state">
+        <p>No furniture items available. Run <code>node seed.js</code> to load the catalogue.</p>
+      </div>
+      {{/if}}
+    </div>
+
+    <!-- Selected Items and Budget -->
+    <div class="room-planner-selected">
+      <h2>Selected Items</h2>
+      <div id="selected-items-list" class="selected-items-list">
+        <p class="empty-selection" id="empty-selection-msg">No items selected yet. Add items from above.</p>
+      </div>
+
+      <!-- Budget Summary -->
+      <div class="budget-summary">
+        <div class="budget-row">
+          <span>Total:</span>
+          <span id="budget-total">₹0</span>
+        </div>
+        <div class="budget-row">
+          <span>Budget:</span>
+          <span id="budget-amount">₹0</span>
+        </div>
+        <div class="budget-row budget-remaining-row">
+          <span>Remaining:</span>
+          <!-- Inline style — demonstrates inline styles from the course handout -->
+          <span id="budget-status" style="font-size: 18px;">₹0</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Hidden field to store items as JSON before form submission -->
+    <input type="hidden" id="items-json" name="items" value="[]">
+
+    <button type="submit" class="btn btn-primary btn-large" id="save-room-btn">Save Room</button>
+  </form>
+</section>
+
+<!-- Room Planner JavaScript — demonstrates all JavaScript course topics -->
+<script src="/js/roomPlanner.js"></script>

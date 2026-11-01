@@ -41,7 +41,11 @@ var hbs = exphbs.create({
     eq: function(a, b) {
       return a === b;
     },
+    // Helper to convert object to JSON string (for embedding data in pages)
+    json: function(context) {
+      return JSON.stringify(context);
     }
+  }
 });
 
 app.engine('.hbs', hbs.engine);
@@ -77,12 +81,18 @@ var authRoutes = require('./routes/authRoutes');
 var homeRoutes = require('./routes/homeRoutes');
 var pinRoutes = require('./routes/pinRoutes');
 var boardRoutes = require('./routes/boardRoutes');
+var roomRoutes = require('./routes/roomRoutes');
+var userRoutes = require('./routes/userRoutes');
+var searchRoutes = require('./routes/searchRoutes');
 
 // Use routes
 app.use('/', authRoutes);
 app.use('/', homeRoutes);
 app.use('/pins', pinRoutes);
 app.use('/boards', boardRoutes);
+app.use('/rooms', roomRoutes);
+app.use('/profile', userRoutes);
+app.use('/explore', searchRoutes);
 
 // Start the HTTP server
 app.listen(PORT, function() {

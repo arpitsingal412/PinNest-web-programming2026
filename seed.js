@@ -1,11 +1,12 @@
 // seed.js
 // Seed script to populate MongoDB with sample furniture/interior data
 // Run with: node seed.js
-// This creates a default user, sample pins, boards
+// This creates a default user, sample pins, boards, and a room
 
 var mongoose = require('mongoose');
 var Pin = require('./models/Pin');
 var Board = require('./models/Board');
+var Room = require('./models/Room');
 var User = require('./models/User');
 var bcrypt = require('bcryptjs');
 
@@ -33,6 +34,7 @@ function seedDatabase() {
   // Clear existing data first
   return Pin.deleteMany({})
     .then(function() { return Board.deleteMany({}); })
+    .then(function() { return Room.deleteMany({}); })
     .then(function() { return User.deleteMany({}); })
     .then(function() {
       console.log('Cleared existing data');
@@ -757,5 +759,75 @@ function seedDatabase() {
           return { user: user, pins: pins };
         });
       });
+    })
+    .then(function(data) {
+      // ============================================================
+      // CREATE SAMPLE ROOMS
+      // ============================================================
+      var user = data.user;
+      var pins = data.pins;
+
+      // Pick living room pins for a sample room
+      var livingRoomItems = [];
+      for (var i = 0; i < pins.length; i++) {
+        if (pins[i].room === 'Living Room' && livingRoomItems.length < 4) {
+          livingRoomItems.push({
+            pinId: pins[i]._id,
+            title: pins[i].title,
+            price: pins[i].price,
+            imageUrl: pins[i].imageUrl
+          });
+        }
+      }
+
+      var livingTotal = 0;
+      for (var j = 0; j < livingRoomItems.length; j++) {
+        livingTotal = livingTotal + livingRoomItems[j].price;
+      }
+
+      // Pick bedroom pins for second sample room
+      var bedroomItems = [];
+      for (var k = 0; k < pins.length; k++) {
+        if (pins[k].room === 'Bedroom' && bedroomItems.length < 3) {
+          bedroomItems.push({
+            pinId: pins[k]._id,
+            title: pins[k].title,
+            price: pins[k].price,
+            imageUrl: pins[k].imageUrl
+          });
+        }
+      }
+
+      var bedroomTotal = 0;
+      for (var l = 0; l < bedroomItems.length; l++) {
+        bedroomTotal = bedroomTotal + bedroomItems[l].price;
+      }
+
+      var room1 = new Room({
+        name: 'My Dream Living Room',
+        roomType: 'Living Room',
+        budget: 150000,
+        items: livingRoomItems,
+        total: livingTotal,
+        createdBy: user._id
+      });
+
+      var room2 = new Room({
+        name: 'Cozy Bedroom',
+        roomType: 'Bedroom',
+        budget: 100000,
+        items: bedroomItems,
+        total: bedroomTotal,
+        createdBy: user._id
+      });
+
+      return room1.save()
+        .then(function(r1) {
+          console.log('Created room: ' + r1.name + ' (Budget: ₹' + r1.budget + ', Total: ₹' + r1.total + ')');
+          return room2.save();
+        })
+        .then(function(r2) {
+          console.log('Created room: ' + r2.name + ' (Budget: ₹' + r2.budget + ', Total: ₹' + r2.total + ')');
+        });
     });
 }

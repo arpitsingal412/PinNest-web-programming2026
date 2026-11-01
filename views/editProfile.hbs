@@ -1,0 +1,41 @@
+<!-- Edit Profile Page — form to update display name, email, and bio -->
+<section class="edit-profile-page">
+  <div class="edit-profile-header">
+    <a href="/profile" class="edit-profile-back-link">&larr; Back to profile</a>
+    <p class="edit-profile-eyebrow">Settings</p>
+    <h1 class="edit-profile-title">Edit Profile</h1>
+    <p class="edit-profile-hint">Update how you appear across PinNest.</p>
+  </div>
+
+  <div class="edit-profile-card">
+    {{#if error}}
+    <p class="auth-error" role="alert">{{error}}</p>
+    {{/if}}
+
+    <form action="/profile/edit" method="POST" class="edit-profile-form">
+      <div class="form-group">
+        <label for="edit-name">Display Name</label>
+        <input type="text" id="edit-name" name="name" class="form-input"
+               placeholder="How you'd like to be addressed" value="{{name}}" required>
+      </div>
+
+      <div class="form-group">
+        <label for="edit-email">Email</label>
+        <input type="email" id="edit-email" name="email" class="form-input"
+               placeholder="you@example.com" value="{{email}}" required>
+        <p class="form-help">You'll use this to log in.</p>
+      </div>
+
+      <div class="form-group">
+        <label for="edit-bio">Bio <span class="form-label-optional">(optional)</span></label>
+        <input type="text" id="edit-bio" name="bio" class="form-input"
+               placeholder="A short line about you" value="{{bio}}">
+      </div>
+
+      <div class="edit-profile-actions">
+        <a href="/profile" class="btn btn-secondary">Cancel</a>
+        <button type="submit" class="btn btn-primary">Save Changes</button>
+      </div>
+    </form>
+  </div>
+</section>

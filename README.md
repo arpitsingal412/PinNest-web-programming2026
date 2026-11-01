@@ -77,7 +77,19 @@ pinnest/
 ## Pages
 
 1. **Home** (`/`) — Pinterest-style furniture feed
-2. **Pin Detail** (`/pins/:id`) — Single pin view
-3. **Create Pin** (`/pins/create`) — Add new pin form
-4. **Boards** (`/boards`) — View and create boards
-5. **Board Detail** (`/boards/:id`) — Pins in a board
+2. **Explore** (`/explore`) — Search and filter pins
+3. **Pin Detail** (`/pins/:id`) — Single pin view
+4. **Create Pin** (`/pins/create`) — Add new pin form
+5. **Boards** (`/boards`) — View and create boards
+6. **Board Detail** (`/boards/:id`) — Pins in a board
+7. **Profile** (`/profile`) — User profile page
+8. **My Rooms** (`/rooms`) — List of rooms
+9. **Room Planner** (`/rooms/create`) — Create room with budget
+10. **Room Detail** (`/rooms/:id`) — Room items and budget
+
+## Unique Feature — Room Planner
+
+Create a room, set a budget, add furniture items, and JavaScript calculates:
+- Total cost
+- Remaining budget
+- Budget exceeded warning

@@ -1,0 +1,101 @@
+<!-- Explore Page — two views gated by hasFilters:
+     1. Default (no filters): the room-card grid with hover overlays
+     2. Filtered: results grid + a "Back to spaces" link -->
+
+{{#if hasFilters}}
+  <!-- ==========================================================
+       FILTERED RESULTS — shown when any filter query param is set
+       ========================================================== -->
+  <section class="explore-results-section" aria-label="Filtered results">
+    <a href="/explore" class="explore-back-link">&larr; Back to spaces</a>
+
+    {{#if pins.length}}
+    <div class="masonry-grid">
+      {{#each pins}}
+        {{> pinCardMasonryExplore}}
+      {{/each}}
+    </div>
+    {{else}}
+    <div class="explore-coming-soon">
+      <p class="explore-coming-soon-title">Coming Soon</p>
+      <p class="explore-coming-soon-hint">We don't have anything here yet.</p>
+    </div>
+    {{/if}}
+  </section>
+
+{{else}}
+  <!-- ==========================================================
+       DEFAULT VIEW — the room grid, no heading text
+       ========================================================== -->
+  <section class="shop-by-space-section" aria-label="Explore by room">
+    <div class="space-grid">
+
+      <div class="space-card">
+        <img src="/images/livingroom.jpg" alt="Living Room" class="space-card-image">
+        <span class="space-card-label">Living Room</span>
+        <div class="space-card-overlay">
+          <a href="/explore?room=Living%20Room">View All</a>
+          <a href="/explore?room=Living%20Room&category=Sofa">Sofas</a>
+          <a href="/explore?room=Living%20Room&category=Chair">Chairs</a>
+          <a href="/explore?room=Living%20Room&category=Table">Coffee Tables</a>
+          <a href="/explore?room=Living%20Room&category=Lighting">Lighting</a>
+          <a href="/explore?room=Living%20Room&q=rug">Rugs</a>
+          <a href="/explore?room=Living%20Room&category=Wall%20Decor">Wall Art &amp; Decor</a>
+        </div>
+      </div>
+
+      <div class="space-card">
+        <img src="/images/bedroom.jpg" alt="Bedroom" class="space-card-image">
+        <span class="space-card-label">Bedroom</span>
+        <div class="space-card-overlay">
+          <a href="/explore?room=Bedroom">View All</a>
+          <a href="/explore?room=Bedroom&category=Bed">Beds</a>
+          <a href="/explore?room=Bedroom&category=Table">Nightstands</a>
+          <a href="/explore?room=Bedroom&category=Lighting">Lighting</a>
+          <a href="/explore?room=Bedroom&category=Storage">Storage</a>
+          <a href="/explore?room=Bedroom&category=Wall%20Decor">D&eacute;cor &amp; Mirrors</a>
+        </div>
+      </div>
+
+      <div class="space-card">
+        <img src="/images/diningroom.jpg" alt="Dining Room" class="space-card-image">
+        <span class="space-card-label">Dining</span>
+        <div class="space-card-overlay">
+          <a href="/explore?room=Dining">View All</a>
+          <a href="/explore?room=Dining&category=Table">Dining Tables</a>
+          <a href="/explore?room=Dining&category=Chair">Chairs</a>
+          <a href="/explore?room=Dining&category=Lighting">Lighting</a>
+        </div>
+      </div>
+
+      <div class="space-card">
+        <img src="/images/wardrobe3.jpg" alt="Study" class="space-card-image">
+        <span class="space-card-label">Study</span>
+        <div class="space-card-overlay">
+          <a href="/explore?room=Study">View All</a>
+          <a href="/explore?room=Study&category=Table">Desks</a>
+          <a href="/explore?room=Study&category=Storage">Storage &amp; Shelving</a>
+        </div>
+      </div>
+
+      <div class="space-card">
+        <img src="/images/bathroom.jpg" alt="Bathroom" class="space-card-image">
+        <span class="space-card-label">Bathroom</span>
+        <div class="space-card-overlay">
+          <a href="/explore?room=Bathroom">View All</a>
+          <a href="/explore?room=Bathroom&category=Storage">Vanities &amp; Storage</a>
+        </div>
+      </div>
+
+      <div class="space-card">
+        <img src="/images/kitchen.jpg" alt="Kitchen" class="space-card-image">
+        <span class="space-card-label">Kitchen</span>
+        <div class="space-card-overlay">
+          <a href="/explore?room=Kitchen">View All</a>
+          <a href="/explore?room=Kitchen&category=Storage">Cabinetry &amp; Storage</a>
+        </div>
+      </div>
+
+    </div>
+  </section>
+{{/if}}
